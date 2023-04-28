@@ -1,9 +1,8 @@
-# mal-db-scraper
-Scrapes any movie/tv/anime database and adds a watched/unwatched status for easier tracking and searching of new media.
+# FrontEnd-2-DB
+Scrapes media websites and constructs an SQL database for ease of tracking and manipulation of media data.
 
 ## Purpose
-Useful for making search for new titles easier. Periodically scrapes MAL and adds a column using sqlite. Then, you can use 
-SQL to filter the titles you have already watched. 
+Useful for making search for new titles easier. Periodically scrapes desired website, constructs an SQL table in SQLite and adds a column for watched/unwatched status. Then, you can use SQL to filter the titles you have already watched. 
 
 ## Technologies used
 Selenium with python, pandas, sqlite
