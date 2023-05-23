@@ -4,7 +4,7 @@ from dataframe_to_sql import df_to_sql
 def modify_MAL():
     conn = None
     try:
-        conn = sqlite3.connect('my_anime_list.db')
+        conn = sqlite3.connect('my_anime_list1.db')
         cur = conn.cursor()
         # Delete superfluous rows
         sql_delete = """DELETE FROM ani_rankings WHERE rank='Rank'"""
@@ -13,10 +13,10 @@ def modify_MAL():
         cur.execute(sql_delete)
         cur.execute(sql_add_col)
         #For printing
-        # cur.execute("SELECT * FROM ani_rankings")
-        # rows = cur.fetchall()
-        # for row in rows:
-        #     print(row)
+        cur.execute("SELECT * FROM ani_rankings")
+        rows = cur.fetchall()
+        for row in rows:
+            print(row)
     except (Exception, sqlite3.Error) as err:
         print(err)
     finally:

@@ -1,14 +1,20 @@
 import time
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+
 import pandas
 
 
 def scrape_mal():
-    s = Service('/Users/pranay_gupta/Downloads/chromedriver_mac_arm64/chromedriver')
-    driver = webdriver.Chrome(service=s)
+
+    #s = Service('/Users/pranay_gupta/Downloads/chromedriver_mac_arm64/chromedriver')
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    driver.get("https://www.google.com")
+    #driver = webdriver.Chrome(service=s)
     chrome_options = Options()
     chrome_options.add_experimental_option("detach", True)
     #driver = webdriver.Chrome(options=chrome_options)
@@ -36,6 +42,6 @@ def scrape_mal():
     # #data_frame.to_csv('MAL_rankings.csv', index=False)
     return data_frame
 
-# if __name__ == "__main__":
-#     scrape_mal()
+if __name__ == "__main__":
+    scrape_mal()
 
